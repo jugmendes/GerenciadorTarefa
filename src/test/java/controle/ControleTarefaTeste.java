@@ -14,4 +14,15 @@ public class ControleTarefaTeste {
 
         assertTrue(ControleTarefa.getInstance().getTarefas().contains(tarefa));
     }
+
+    @Test
+    public void testBuscarTarefaPorId() {
+        ControleTarefa controle = ControleTarefa.getInstance();
+        Tarefa tarefa = new Tarefa(1, "Fazer exercício");
+        controle.adicionarTarefa(tarefa);
+
+        Tarefa encontrada = controle.buscarTarefaPorId(1);
+
+        assertNotNull(encontrada);
+    }
 }
