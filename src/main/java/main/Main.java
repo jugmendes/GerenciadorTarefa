@@ -12,6 +12,8 @@ public class Main {
         while (true){
             System.out.println("\n=== CONTROLE DE TAREFAS ===");
             System.out.println("1. Adicionar Tarefa");
+            System.out.println("2. Listar Tarefas");
+            System.out.println("3. Buscar Tarefa pelo ID");
             System.out.println("5. Sair");
             System.out.print("Escolha uma opção: ");
 
@@ -27,6 +29,22 @@ public class Main {
                     Tarefa tarefa = new Tarefa(id, descricao);
                     ControleTarefa.getInstance().adicionarTarefa(tarefa);
                     System.out.println("Tarefa adicionada!");
+                    break;
+
+                case 2:
+                    ControleTarefa.getInstance().listarTarefas();
+                    break;
+
+                case 3:
+                    System.out.print("Digite o ID da tarefa: ");
+                    int buscaId = scanner.nextInt();
+                    scanner.nextLine();
+                    Tarefa encontrada = ControleTarefa.getInstance().buscarTarefaPorId(buscaId);
+                    if (encontrada != null) {
+                        System.out.println("Tarefa encontrada: " + encontrada);
+                    } else {
+                        System.out.println("Tarefa não encontrada.");
+                    }
                     break;
 
                 case 5:
