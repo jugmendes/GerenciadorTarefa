@@ -27,4 +27,24 @@ public class ControleTarefa {
     public ArrayList<Tarefa> getTarefas() {
         return this.tarefas;
     }
+
+    public void listarTarefas() {
+        if (tarefas.isEmpty()) {
+            System.out.println("Nenhuma tarefa cadastrada.");
+        } else {
+            for (Tarefa tarefa : tarefas) {
+                System.out.println(tarefa);
+            }
+        }
+    }
+
+    public Tarefa buscarTarefaPorId(int id) {
+        for (Tarefa tarefa : tarefas) {
+            if (tarefa.getId() == id) {
+                return tarefa;
+            }
+        }
+        return null;
+    }
+
 }
